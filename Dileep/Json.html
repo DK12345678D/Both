@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>All JSON Examples in One Page</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 30px;
+      }
+      h2 {
+        margin-top: 40px;
+        color: darkblue;
+      }
+      .output {
+        padding: 10px;
+        background: #f0f0f0;
+        margin-top: 10px;
+        border-left: 4px solid #ccc;
+      }
+      button {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📦 JSON Examples in One Web Page (With Explanation)</h1>
+
+    <!-- 1. JSON Definition -->
+    <h2>1. Define JSON Data</h2>
+    <div class="output" id="output1"></div>
+
+    <!-- 2. Parse JSON -->
+    <h2>2. Parse JSON String → JavaScript Object</h2>
+    <div class="output" id="output2"></div>
+
+    <!-- 3. Access JSON Data -->
+    <h2>3. Access JSON Object Data</h2>
+    <div class="output" id="output3"></div>
+
+    <!-- 4. Loop Through JSON Array -->
+    <h2>4. Loop Through JSON Array</h2>
+    <div class="output" id="output4"></div>
+
+    <!-- 5. Stringify JavaScript Object to JSON -->
+    <h2>5. Convert Object → JSON String (Stringify)</h2>
+    <div class="output" id="output5"></div>
+
+    <!-- 6. Nested JSON -->
+    <h2>6. Nested JSON Example</h2>
+    <div class="output" id="output6"></div>
+
+    <!-- 7. Update JSON -->
+    <h2>7. Modify JSON Data</h2>
+    <div class="output" id="output7"></div>
+
+    <!-- 8. Simulate JSON API Response -->
+    <h2>8. Simulated AJAX with JSON</h2>
+    <button onclick="loadUserData()">Load JSON</button>
+    <div class="output" id="output8"></div>
+
+    <!-- 9. Bonus: Fetch API with JSON -->
+    <h2>9. Bonus: Fetch from Public JSON API</h2>
+    <button onclick="fetchAPI()">Fetch JSON Placeholder</button>
+    <div class="output" id="output9"></div>
+
+    <script>
+      // 1. Define JSON data (as object)
+      const user = {
+        name: "Alice",
+        age: 28,
+        isStudent: false,
+      };
+      document.getElementById("output1").textContent = JSON.stringify(
+        user,
+        null,
+        2
+      );
+
+      // 2. Parse JSON string into JS object
+      const jsonStr = '{"fruit":"Mango","color":"Yellow"}';
+      const obj = JSON.parse(jsonStr);
+      document.getElementById(
+        "output2"
+      ).textContent = `Fruit: ${obj.fruit}, Color: ${obj.color}`;
+
+      // 3. Access JSON data
+      document.getElementById(
+        "output3"
+      ).textContent = `User Name: ${user.name}, Age: ${user.age}`;
+
+      // 4. Loop through JSON array
+      const cars = [
+        { brand: "Toyota", model: "Camry" },
+        { brand: "Honda", model: "Civic" },
+        { brand: "Ford", model: "Mustang" },
+      ];
+      let carList = "Car List:\n";
+      cars.forEach((c) => {
+        carList += `${c.brand} - ${c.model}\n`;
+      });
+      document.getElementById("output4").textContent = carList;
+
+      // 5. Stringify JS object into JSON string
+      const jsObj = { city: "New York", temp: 27 };
+      const jsonString = JSON.stringify(jsObj);
+      document.getElementById("output5").textContent = jsonString;
+
+      // 6. Nested JSON example
+      const company = {
+        name: "TechSoft",
+        location: "India",
+        employees: [
+          { name: "Raj", role: "Developer" },
+          { name: "Sara", role: "Designer" },
+        ],
+      };
+      document.getElementById(
+        "output6"
+      ).textContent = `Employee 1: ${company.employees[0].name}, Role: ${company.employees[0].role}`;
+
+      // 7. Modify JSON object
+      user.age = 29;
+      user.isStudent = true;
+      document.getElementById(
+        "output7"
+      ).textContent = `Updated: ${JSON.stringify(user)}`;
+
+      // 8. Simulated AJAX call using setTimeout
+      function loadUserData() {
+        document.getElementById("output8").textContent = "Loading...";
+        setTimeout(() => {
+          const response =
+            '{"id":1,"username":"demoUser","email":"demo@example.com"}';
+          const userData = JSON.parse(response);
+          document.getElementById(
+            "output8"
+          ).textContent = `ID: ${userData.id}, Username: ${userData.username}, Email: ${userData.email}`;
+        }, 1000);
+      }
+
+      // 9. Fetch from public JSON API
+      function fetchAPI() {
+        document.getElementById("output9").textContent = "Fetching...";
+        fetch("https://jsonplaceholder.typicode.com/posts/1")
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById(
+              "output9"
+            ).textContent = `Title: ${data.title}\nBody: ${data.body}`;
+          })
+          .catch((err) => {
+            document.getElementById("output9").textContent =
+              "Error loading data.";
+          });
+      }
+    </script>
+  </body>
+</html>

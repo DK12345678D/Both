@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>All JavaScript Examples in One Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+      }
+      h2 {
+        color: darkblue;
+        margin-top: 40px;
+      }
+      .output {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f8f8f8;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>💡 All JavaScript Examples in One Web Page (With Explanations)</h1>
+
+    <!-- 1. Alert, Console, Document Write -->
+    <h2>1. Output Methods</h2>
+    <button onclick="showOutputs()">Click for Outputs</button>
+    <script>
+      function showOutputs() {
+        alert("This is an alert!");
+        console.log("This is a console log message.");
+        document.getElementById("output1").innerHTML =
+          "Written to page using innerHTML.";
+      }
+    </script>
+    <div id="output1" class="output"></div>
+
+    <!-- 2. Variables and Data Types -->
+    <h2>2. Variables & Data Types</h2>
+    <div class="output" id="output2"></div>
+    <script>
+      let name = "Alice";
+      let age = 25;
+      let isStudent = true;
+      document.getElementById("output2").innerHTML =
+        "Name: " + name + "<br>Age: " + age + "<br>Student: " + isStudent;
+    </script>
+
+    <!-- 3. Functions -->
+    <h2>3. Functions</h2>
+    <button onclick="greet()">Say Hello</button>
+    <div id="output3" class="output"></div>
+    <script>
+      function greet() {
+        document.getElementById("output3").innerText = "Hello from a function!";
+      }
+    </script>
+
+    <!-- 4. Events -->
+    <h2>4. Events</h2>
+    <button id="eventBtn">Click Me</button>
+    <div id="output4" class="output"></div>
+    <script>
+      document
+        .getElementById("eventBtn")
+        .addEventListener("click", function () {
+          document.getElementById("output4").innerText = "Button clicked!";
+        });
+    </script>
+
+    <!-- 5. Conditional Statements -->
+    <h2>5. Conditionals</h2>
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <button onclick="checkNumber()">Check</button>
+    <div id="output5" class="output"></div>
+    <script>
+      function checkNumber() {
+        let num = document.getElementById("numberInput").value;
+        let output = num % 2 === 0 ? "Even" : "Odd";
+        document.getElementById("output5").innerText =
+          "This number is: " + output;
+      }
+    </script>
+
+    <!-- 6. Loops -->
+    <h2>6. Loops</h2>
+    <button onclick="showLoop()">Show 1 to 5</button>
+    <div id="output6" class="output"></div>
+    <script>
+      function showLoop() {
+        let result = "";
+        for (let i = 1; i <= 5; i++) {
+          result += i + " ";
+        }
+        document.getElementById("output6").innerText = result;
+      }
+    </script>
+
+    <!-- 7. Arrays -->
+    <h2>7. Arrays</h2>
+    <div id="output7" class="output"></div>
+    <script>
+      const fruits = ["Apple", "Banana", "Cherry"];
+      document.getElementById("output7").innerText = fruits.join(", ");
+    </script>
+
+    <!-- 8. Objects -->
+    <h2>8. Objects</h2>
+    <div id="output8" class="output"></div>
+    <script>
+      const person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 30,
+      };
+      document.getElementById("output8").innerText =
+        person.firstName + " " + person.lastName + ", Age: " + person.age;
+    </script>
+
+    <!-- 9. DOM Manipulation -->
+    <h2>9. DOM Manipulation</h2>
+    <button onclick="changeColor()">Change Background</button>
+    <div id="colorBox" class="output">Click the button above</div>
+    <script>
+      function changeColor() {
+        document.getElementById("colorBox").style.backgroundColor = "#d1ffd1";
+      }
+    </script>
+
+    <!-- 10. Date and Time -->
+    <h2>10. Date and Time</h2>
+    <button onclick="showDate()">Show Date</button>
+    <div id="output10" class="output"></div>
+    <script>
+      function showDate() {
+        const now = new Date();
+        document.getElementById("output10").innerText = now.toString();
+      }
+    </script>
+
+    <!-- 11. Math Object -->
+    <h2>11. Math Operations</h2>
+    <div class="output" id="output11"></div>
+    <script>
+      let x = Math.sqrt(64);
+      let y = Math.random();
+      document.getElementById("output11").innerHTML =
+        "Square root of 64: " + x + "<br>Random number: " + y.toFixed(2);
+    </script>
+
+    <!-- 12. Form Validation -->
+    <h2>12. Basic Form Validation</h2>
+    <form onsubmit="return validateForm()">
+      <input type="text" id="nameField" placeholder="Enter name" />
+      <button type="submit">Submit</button>
+      <div id="output12" class="output"></div>
+    </form>
+    <script>
+      function validateForm() {
+        const name = document.getElementById("nameField").value;
+        if (name === "") {
+          document.getElementById("output12").innerText =
+            "Name cannot be empty!";
+          return false;
+        } else {
+          document.getElementById("output12").innerText = "Form submitted!";
+          return true;
+        }
+      }
+    </script>
+
+    <!-- 13. Timer (setTimeout and setInterval) -->
+    <h2>13. Timers</h2>
+    <button onclick="startTimer()">Start</button>
+    <div id="output13" class="output"></div>
+    <script>
+      function startTimer() {
+        document.getElementById("output13").innerText = "Wait for 2 seconds...";
+        setTimeout(() => {
+          document.getElementById("output13").innerText = "Timeout complete!";
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

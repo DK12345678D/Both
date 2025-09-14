@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>All AJAX Examples in One Page</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 30px;
+      }
+      h2 {
+        color: darkblue;
+        margin-top: 40px;
+      }
+      .output {
+        background: #f1f1f1;
+        padding: 10px;
+        margin-top: 10px;
+        border-left: 4px solid #ccc;
+      }
+      button {
+        margin-top: 10px;
+        display: inline-block;
+      }
+    </style>
+    <!-- ✅ Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <h1>📡 All AJAX Examples in One Page (With Explanation)</h1>
+
+    <!-- 1. XHR Example -->
+    <h2>1. AJAX using Vanilla JavaScript (XHR)</h2>
+    <button onclick="loadTextXHR()">Load Text (XHR)</button>
+    <div class="output" id="xhrOutput"></div>
+
+    <!-- 2. jQuery $.get -->
+    <h2>2. AJAX using jQuery $.get()</h2>
+    <button id="jqueryGetBtn">Load JSON via GET</button>
+    <div class="output" id="getOutput"></div>
+
+    <!-- 3. jQuery $.post -->
+    <h2>3. AJAX using jQuery $.post()</h2>
+    <button id="jqueryPostBtn">Send Data via POST</button>
+    <div class="output" id="postOutput"></div>
+
+    <!-- 4. jQuery $.ajax (Advanced) -->
+    <h2>4. AJAX using jQuery $.ajax()</h2>
+    <button id="ajaxBtn">Load with $.ajax</button>
+    <div class="output" id="ajaxOutput"></div>
+
+    <!-- 5. Modern Fetch API -->
+    <h2>5. AJAX using Fetch API (Modern)</h2>
+    <button onclick="loadUsingFetch()">Fetch Data</button>
+    <div class="output" id="fetchOutput"></div>
+
+    <!-- 6. Load HTML File -->
+    <h2>6. Load External HTML Content (jQuery)</h2>
+    <button onclick="loadHTML()">Load HTML Content</button>
+    <div class="output" id="htmlOutput"></div>
+
+    <script>
+      // 1. AJAX using Vanilla JavaScript (XHR)
+      function loadTextXHR() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+            document.getElementById(
+              "xhrOutput"
+            ).innerText = `Title: ${data.title}`;
+          } else {
+            document.getElementById("xhrOutput").innerText =
+              "Error loading data.";
+          }
+        };
+        xhr.send();
+      }
+
+      // 2. jQuery $.get()
+      $("#jqueryGetBtn").click(function () {
+        $.get("https://jsonplaceholder.typicode.com/users/1", function (data) {
+          $("#getOutput").text(`Name: ${data.name}, Email: ${data.email}`);
+        });
+      });
+
+      // 3. jQuery $.post()
+      $("#jqueryPostBtn").click(function () {
+        $.post(
+          "https://jsonplaceholder.typicode.com/posts",
+          {
+            title: "AJAX Post",
+            body: "Hello from jQuery!",
+            userId: 1,
+          },
+          function (response) {
+            $("#postOutput").text(
+              `Posted Title: ${response.title}, ID: ${response.id}`
+            );
+          }
+        );
+      });
+
+      // 4. jQuery $.ajax()
+      $("#ajaxBtn").click(function () {
+        $.ajax({
+          url: "https://jsonplaceholder.typicode.com/comments/1",
+          method: "GET",
+          success: function (data) {
+            $("#ajaxOutput").html(`Comment: ${data.body}`);
+          },
+          error: function () {
+            $("#ajaxOutput").text("Failed to load comment.");
+          },
+        });
+      });
+
+      // 5. Fetch API
+      function loadUsingFetch() {
+        document.getElementById("fetchOutput").textContent = "Loading...";
+        fetch("https://jsonplaceholder.typicode.com/todos/1")
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById(
+              "fetchOutput"
+            ).textContent = `Todo: ${data.title}, Completed: ${data.completed}`;
+          })
+          .catch(() => {
+            document.getElementById("fetchOutput").textContent =
+              "Error fetching data.";
+          });
+      }
+
+      // 6. Load External HTML (for demo, we use placeholder)
+      function loadHTML() {
+        $("#htmlOutput").html(
+          "<strong>This would be loaded from an HTML file.</strong>"
+        );
+        // Real use: $("#htmlOutput").load("example.html");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Examples Explained</title>
+
+    <!-- INTERNAL CSS starts here -->
+    <style>
+      /* Body styling */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        background-color: #f9f9f9;
+      }
+
+      /* ID selector */
+      #main-title {
+        color: darkblue;
+        text-align: center;
+      }
+
+      /* Class selector */
+      .section-title {
+        color: darkgreen;
+        font-size: 24px;
+        border-bottom: 2px solid gray;
+        margin-top: 40px;
+      }
+
+      /* Styling a paragraph */
+      .styled-paragraph {
+        color: #444;
+        background-color: #e0f7fa;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      /* Links */
+      a {
+        color: blue;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: red;
+      }
+
+      /* Box model */
+      .box {
+        width: 200px;
+        height: 100px;
+        margin: 20px;
+        padding: 15px;
+        border: 2px dashed #666;
+        background-color: lightyellow;
+      }
+
+      /* Display and Position */
+      .inline-box {
+        display: inline-block;
+        background-color: pink;
+        padding: 10px;
+      }
+
+      .position-box {
+        position: relative;
+        top: 20px;
+        left: 10px;
+        background-color: lightblue;
+        padding: 10px;
+      }
+
+      /* Flexbox Example */
+      .flex-container {
+        display: flex;
+        gap: 10px;
+        background-color: #eee;
+        padding: 10px;
+      }
+
+      .flex-item {
+        background-color: #ddd;
+        padding: 20px;
+        flex: 1;
+        text-align: center;
+      }
+
+      /* Font and Text styles */
+      .text-style {
+        font-size: 18px;
+        font-style: italic;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        text-shadow: 1px 1px #aaa;
+      }
+
+      /* Pseudo-class */
+      button:hover {
+        background-color: #333;
+        color: white;
+      }
+    </style>
+    <!-- INTERNAL CSS ends here -->
+  </head>
+  <body>
+    <!-- ID selector -->
+    <h1 id="main-title">All CSS Examples in One Web Page</h1>
+
+    <!-- Class selector -->
+    <h2 class="section-title">1. Inline CSS</h2>
+    <p style="color: red; font-weight: bold">
+      This paragraph uses inline CSS (directly inside the HTML tag).
+    </p>
+
+    <h2 class="section-title">2. Internal CSS</h2>
+    <p class="styled-paragraph">
+      This paragraph is styled using internal CSS defined in the &lt;style&gt;
+      tag.
+    </p>
+
+    <h2 class="section-title">3. CSS Colors, Borders, Padding, Margin</h2>
+    <div class="box">
+      This box has padding, border, and margin defined with background color.
+    </div>
+
+    <h2 class="section-title">4. Links and Hover Effects</h2>
+    <a href="https://www.google.com" target="_blank">Go to Google</a>
+
+    <h2 class="section-title">5. Display and Position</h2>
+    <div class="inline-box">Inline Box 1</div>
+    <div class="inline-box">Inline Box 2</div>
+    <div class="position-box">This box is relatively positioned.</div>
+
+    <h2 class="section-title">6. Flexbox Layout</h2>
+    <div class="flex-container">
+      <div class="flex-item">Flex Item 1</div>
+      <div class="flex-item">Flex Item 2</div>
+      <div class="flex-item">Flex Item 3</div>
+    </div>
+
+    <h2 class="section-title">7. Fonts and Text Effects</h2>
+    <p class="text-style">
+      Stylized text with shadow, uppercase, and alignment.
+    </p>
+
+    <h2 class="section-title">8. Button with Hover</h2>
+    <button>Hover Over Me</button>
+
+    <h2 class="section-title">9. Simulated External CSS</h2>
+    <p>
+      External CSS is written in a separate file (like <code>style.css</code>)
+      and linked with:
+    </p>
+    <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+  </body>
+</html>

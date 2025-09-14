@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>All jQuery Examples in One Page</title>
+
+    <!-- ✅ jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+      }
+      h2 {
+        color: darkblue;
+        margin-top: 40px;
+      }
+      .box {
+        padding: 15px;
+        background-color: #f1f1f1;
+        margin-top: 10px;
+        display: inline-block;
+      }
+      .highlight {
+        background-color: yellow;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>💡 jQuery Examples With Explanation</h1>
+
+    <!-- 1. jQuery Ready -->
+    <h2>1. Document Ready</h2>
+    <div class="box" id="readyBox">jQuery is ready!</div>
+
+    <!-- 2. Click Event -->
+    <h2>2. Click Event</h2>
+    <button id="clickBtn">Click Me</button>
+    <div id="clickResult" class="box"></div>
+
+    <!-- 3. Hide/Show Effects -->
+    <h2>3. Hide / Show</h2>
+    <button id="hideBtn">Hide Box</button>
+    <button id="showBtn">Show Box</button>
+    <div id="toggleBox" class="box">You can hide/show me</div>
+
+    <!-- 4. Fade / Slide Effects -->
+    <h2>4. Fade and Slide</h2>
+    <button id="fadeBtn">Fade Out</button>
+    <button id="slideBtn">Slide Up</button>
+    <div id="effectBox" class="box">Watch me fade or slide!</div>
+
+    <!-- 5. Text and HTML -->
+    <h2>5. Change Text & HTML</h2>
+    <button id="textBtn">Change Text</button>
+    <button id="htmlBtn">Change HTML</button>
+    <div id="contentBox" class="box">Original content</div>
+
+    <!-- 6. Add/Remove Class -->
+    <h2>6. Add / Remove Class</h2>
+    <button id="addClassBtn">Add Highlight</button>
+    <button id="removeClassBtn">Remove Highlight</button>
+    <div id="classBox" class="box">Style me with class</div>
+
+    <!-- 7. CSS Method -->
+    <h2>7. CSS Manipulation</h2>
+    <button id="cssBtn">Change Color</button>
+    <div id="cssBox" class="box">Watch my color change</div>
+
+    <!-- 8. Input Value -->
+    <h2>8. Input Value</h2>
+    <input type="text" id="nameInput" placeholder="Type your name" />
+    <button id="showNameBtn">Show Name</button>
+    <div id="nameResult" class="box"></div>
+
+    <!-- 9. Loop Through Elements -->
+    <h2>9. Loop (.each)</h2>
+    <ul id="itemList">
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Cherry</li>
+    </ul>
+    <button id="loopBtn">Highlight All</button>
+
+    <!-- 10. AJAX Request (Fake) -->
+    <h2>10. AJAX Request (Simulated)</h2>
+    <button id="ajaxBtn">Load Message</button>
+    <div id="ajaxResult" class="box"></div>
+
+    <!-- jQuery Code -->
+    <script>
+      // 1. Document Ready
+      $(document).ready(function () {
+        $("#readyBox").text("jQuery is loaded and ready!");
+      });
+
+      // 2. Click Event
+      $("#clickBtn").click(function () {
+        $("#clickResult").text("Button was clicked!");
+      });
+
+      // 3. Hide/Show
+      $("#hideBtn").click(function () {
+        $("#toggleBox").hide();
+      });
+      $("#showBtn").click(function () {
+        $("#toggleBox").show();
+      });
+
+      // 4. Effects: fade & slide
+      $("#fadeBtn").click(function () {
+        $("#effectBox").fadeOut(1000);
+      });
+      $("#slideBtn").click(function () {
+        $("#effectBox").slideUp(1000);
+      });
+
+      // 5. Text and HTML
+      $("#textBtn").click(function () {
+        $("#contentBox").text("This is plain text now.");
+      });
+      $("#htmlBtn").click(function () {
+        $("#contentBox").html("<b>This is bold HTML text!</b>");
+      });
+
+      // 6. Add/Remove Class
+      $("#addClassBtn").click(function () {
+        $("#classBox").addClass("highlight");
+      });
+      $("#removeClassBtn").click(function () {
+        $("#classBox").removeClass("highlight");
+      });
+
+      // 7. CSS
+      $("#cssBtn").click(function () {
+        $("#cssBox").css("color", "red").css("background-color", "#e0f7fa");
+      });
+
+      // 8. Input Value
+      $("#showNameBtn").click(function () {
+        let name = $("#nameInput").val();
+        $("#nameResult").text("Hello, " + name + "!");
+      });
+
+      // 9. Loop
+      $("#loopBtn").click(function () {
+        $("#itemList li").each(function () {
+          $(this).addClass("highlight");
+        });
+      });
+
+      // 10. AJAX Simulation
+      $("#ajaxBtn").click(function () {
+        $("#ajaxResult").text("Loading...");
+        setTimeout(function () {
+          $("#ajaxResult").text("This message was 'loaded' after 1 second!");
+        }, 1000); // Simulates AJAX delay
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- This declaration tells the browser that this is an HTML5 document -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Sets the character encoding to UTF-8 -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Makes the website responsive on mobile devices -->
+
+    <title>All HTML Elements Example</title>
+    <!-- Sets the page title shown on the browser tab -->
+
+    <style>
+      /* Internal CSS for basic styling */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Everything inside the <body> tag is visible on the page -->
+
+    <h1>Welcome to My HTML Example Page</h1>
+    <p>This page demonstrates common HTML elements.</p>
+
+    <!-- Headings Section -->
+    <h2>Headings</h2>
+    <h1>H1 - Main Title</h1>
+    <h2>H2 - Section Title</h2>
+    <h3>H3 - Subsection Title</h3>
+
+    <!-- Text Formatting -->
+    <h2>Text Formatting</h2>
+    <p>
+      <b>Bold</b>, <i>Italic</i>, <u>Underline</u>, <mark>Marked Text</mark>,
+      <small>Small Text</small>, <del>Deleted</del>, <ins>Inserted</ins>,
+      <sub>Subscript</sub>,
+      <sup>Superscript</sup>
+    </p>
+
+    <!-- Links and Images -->
+    <h2>Links and Images</h2>
+    <p>
+      <a href="https://www.example.com" target="_blank">Visit Example.com</a>
+    </p>
+    <!-- Opens in a new tab -->
+    <img
+      src="https://via.placeholder.com/150"
+      alt="Placeholder Image"
+      width="150"
+    />
+    <!-- Displays an image -->
+
+    <!-- Lists -->
+    <h2>Lists</h2>
+    <h3>Unordered List</h3>
+    <ul>
+      <li>Apple</li>
+      <li>Banana</li>
+    </ul>
+
+    <h3>Ordered List</h3>
+    <ol>
+      <li>First</li>
+      <li>Second</li>
+    </ol>
+
+    <!-- Table -->
+    <h2>Table</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>25</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>28</td>
+      </tr>
+    </table>
+
+    <!-- Form -->
+    <h2>Form</h2>
+    <form action="#">
+      <!-- action="#" means it won't actually submit anywhere -->
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" /><br /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" /><br /><br />
+
+      <input type="checkbox" id="subscribe" />
+      <label for="subscribe">Subscribe to newsletter</label><br /><br />
+
+      Gender:<br />
+      <input type="radio" id="male" name="gender" value="male" />
+      <label for="male">Male</label><br />
+
+      <input type="radio" id="female" name="gender" value="female" />
+      <label for="female">Female</label><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <!-- Button -->
+    <h2>Buttons</h2>
+    <button type="button" onclick="alert('Button clicked!')">Click Me</button>
+    <!-- Shows a popup when clicked -->
+
+    <!-- Div and Span -->
+    <h2>Div and Span</h2>
+    <div style="background-color: lightblue; padding: 10px">
+      This is a div block
+    </div>
+    <!-- A block-level container -->
+    <p>
+      This is
+      <span style="color: red; padding-top: 10px">inline span text</span>.
+    </p>
+    <!-- An inline container -->
+
+    <!-- Audio -->
+    <h2>Audio</h2>
+    <audio controls>
+      <source
+        src="https://www.w3schools.com/html/horse.mp3"
+        type="audio/mpeg"
+      />
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Video -->
+    <h2>Video</h2>
+    <video width="320" height="240" controls>
+      <source
+        src="https://www.w3schools.com/html/mov_bbb.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+  </body>
+</html>
